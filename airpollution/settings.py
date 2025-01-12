@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-^ny8r56=!ai)l&p_*)_(tvzd5sig1#k4-j@$0zwpb#8kf=%frp
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', '.vercel.app']
 
 
 # Application definition
@@ -110,8 +110,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://c2f9-136-158-11-18.ngrok-free.app",  # Your Ngrok URL
-    "http://localhost:8000",  # Local development if needed
+    "https://airpollution-kappa.vercel.app",
+    "http://localhost:8000", 
 ]
 
 
