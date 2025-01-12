@@ -84,7 +84,7 @@ DATABASES = {
         'PORT': '5432',  # Database port
         'OPTIONS': {
             'sslmode': 'require',  # SSL mode required for secure connections
-            'options': 'ep-silent-pond-a19vi10o-pooler',  # Optional endpoint
+            'options': 'endpoint=ep-silent-pond-a19vi10o-pooler',  # Optional endpoint
         },
     }
 }
