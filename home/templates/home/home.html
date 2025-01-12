@@ -8,13 +8,16 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 
 </head>
+<style>
+    #navBar, #footer {
+        background-color: #002F5E;
+    }
+</style>
 <body class="bg-gray-100">
-
-    <!-- Navbar -->
-    <nav class="bg-white border-gray-200 dark:bg-gray-900">
+    <nav id="navBar" class="border-gray-200 dark:bg-gray-900">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Air Pollution Monitoring</span>
+                <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Air Pollution Monitoring</span>
             </a>
             <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
                 <span class="sr-only">Open main menu</span>
@@ -23,18 +26,18 @@
                 </svg>
             </button>
             <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-                <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0  dark:border-gray-700">
                     <li>
-                        <a href="{% url 'home' %}" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Home</a>
+                        <a href="{% url 'home' %}" class="block py-2 px-3 bg-blue-700 rounded md:bg-transparent md:p-0 text-blue-400" aria-current="page">Home</a>
                     </li>
                     <li>
-                        <a href="{% url 'calibrate' %}" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Calibrate</a>
+                        <a href="{% url 'calibrate' %}" class="block py-2 px-3 bg-blue-700 rounded md:bg-transparent md:p-0 text-blue-400" aria-current="page">Calibrate</a>
                     </li>
                     <li>
-                        <a href="{% url 'connection' %}" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Connections</a>
+                        <a href="{% url 'connection' %}" class="block py-2 px-3  bg-blue-700 rounded md:bg-transparent md:p-0 text-blue-400" aria-current="page">Connections</a>
                     </li>
                     <li>
-                        <a href="{% url 'logout' %}" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Logout</a>
+                        <a href="{% url 'logout' %}" class="block py-2 px-3  bg-blue-700 rounded md:bg-transparent md:p-0 text-blue-400" aria-current="page">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -52,8 +55,65 @@
             </div>
         </div>
 
+
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-6">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3 bg-gray-50 dark:bg-gray-800">
+                            Pollutants
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Levels
+                        </th>
+                        <th scope="col" class="px-6 py-3 bg-gray-50 dark:bg-gray-800">
+                            Air Quality
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b border-gray-200 dark:border-gray-700">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                            CO2 (Carbon Dioxide)
+                        </th>
+                        <td class="px-6 py-4">
+                            400-800 ppm
+                        </td>
+                        <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
+                            Good
+                        </td>
+                        
+                    </tr>
+                    <tr class="border-b border-gray-200 dark:border-gray-700">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                            CO2 (Carbon Dioxide)
+                        </th>
+                        <td class="px-6 py-4">
+                            800-1200 ppm
+                        </td>
+                        <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
+                            Moderate
+                        </td>
+                        
+                    </tr>
+                    <tr class="border-b border-gray-200 dark:border-gray-700">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                            CO2 (Carbon Dioxide)
+                        </th>
+                        <td class="px-6 py-4">
+                            1200-1800 ppm
+                        </td>
+                        <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
+                            High
+                        </td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
         <!-- Second container for the square card -->
-        <div id="squareContainer" class="flex flex-col items-center space-y-4 mt-4">
+        <div id="squareContainer" class="hidden flex flex-col items-center space-y-4 mt-4">
             <!-- Square card style -->
             <h1 class="font-semibold">Carbon Monoxide</h1>
             <div id="squareCard" class="flex items-center bg-gray-800 justify-center flex-col w-64 h-32 p-4 rounded-lg border border-gray-300 shadow-lg transition duration-300 ease-in-out">
@@ -61,7 +121,7 @@
             </div>
         </div>
 
-        <div id="ozoneContainer" class="flex flex-col items-center space-y-4 mt-4">
+        <div id="ozoneContainer" class="hidden flex flex-col items-center space-y-4 mt-4">
             <!-- Square card style for Ozone -->
              <h1 class="font-semibold"> Ozone</h1>
             <div id="ozoneCard" class="flex items-center bg-gray-800 justify-center flex-col w-64 h-auto p-4 border border-gray-300 shadow-lg transition duration-300 ease-in-out rounded-lg">
@@ -71,46 +131,37 @@
 
     </div>
 
-    <div class="flex items-center min-h-screen mt-6 dark:bg-gray-900 mb-8">
+    <div class="flex items-center min-h-screen mt-6 dark:bg-gray-900 mb-8 mr-4">
     
         <div class="container max-w-6xl px-5 mx-auto my-28">
     
             <h1 class="font-bold text-2xl mb-4 underline">Realtime Data</h1>
     
-            <div class="grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
-                <div class="p-5 bg-white rounded shadow-sm">
+            <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                <div id="co2" class="p-5 bg-white rounded shadow-sm">
                     <div class="text-base text-gray-400 ">CO2</div>
                     <div class="flex items-center pt-1">
-                        <div class="text-2xl font-bold text-gray-900 ">777 PPM</div>
+                        <div id="co2text" class="text-2xl font-bold text-gray-900 "></div>
                         <span class="flex items-center px-2 py-0.5 mx-2 text-sm text-green-600 bg-green-100 rounded-full">
-                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg>
-                            <span>Moderate</span>
+                            <span id="co2status"></span>
                         </span>
                     </div>
                 </div>
-                <div class="p-5 bg-white rounded shadow-sm">
+                <div id="co" class="p-5 bg-white rounded shadow-sm">
                     <div class="text-base text-gray-400 ">CO</div>
                     <div class="flex items-center pt-1">
-                        <div class="text-2xl font-bold text-gray-900 ">122 PPM</div>
+                        <div id="cotext" class="text-2xl font-bold text-gray-900 "></div>
                         <span class="flex items-center px-2 py-0.5 mx-2 text-sm text-red-600 bg-red-100 rounded-full">
-                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg>
-                            <span>Low</span>
+                            <span id="costatus"></span>
                         </span>
                     </div>
                 </div>
-                <div class="p-5 bg-white rounded shadow-sm">
+                <div id="ozone" class="p-5 bg-white rounded shadow-sm">
                     <div class="text-base text-gray-400 ">Ozone (O3)</div>
                     <div class="flex items-center pt-1">
-                        <div class="text-2xl font-bold text-gray-900 ">0.02</div>
+                        <div id="ozonetext" class="text-2xl font-bold text-gray-900 "></div>
                         <span class="flex items-center px-2 py-0.5 mx-2 text-sm text-green-600 bg-green-100 rounded-full">
-                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg>
-                            <span>Low</span>
+                            <span id="ozonestatus"></span>
                         </span>
                     </div>
                 </div>
@@ -130,7 +181,7 @@
         </div>
     </div>
 
-    <div class="container w-full mx-auto max-w-4xl p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+    <div class="container w-full mx-auto sm:mr-2 sm:ml-2 max-w-4xl p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
         <h1 class="text-2xl font-bold mb-4 text-center">Pollution Trends (Last 24 Hours)</h1>
         <canvas id="myChart" class="mb-8"></canvas>
     </div>
@@ -138,9 +189,9 @@
     <!-- Footer Mentions -->
 
 
-    <footer class="bg-white rounded-lg shadow m-4 dark:bg-gray-800">
+    <footer id="footer" class="rounded-lg shadow m-4">
         <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-          <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2025 <a href="https://flowbite.com/" class="hover:underline">Air Pollution Monitoring | AMA University & Baranggay Baesa</a>. All Rights Reserved.
+          <span class="text-sm text-gray-500 sm:text-center text-white">© 2025 <a href="https://flowbite.com/" class="hover:underline">Air Pollution Monitoring | AMA University & Baranggay Baesa</a>. All Rights Reserved.
         </span>
         <div class="flex flex-row md:mb-0">
             <a href="" class="flex items-center">
@@ -159,7 +210,7 @@
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js';
         import { getFirestore, collection, getDocs, query, orderBy, limit } from 'https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js';
         import { format } from 'https://cdn.jsdelivr.net/npm/date-fns@2.28.0/esm/index.js';
-
+    
         // Firebase config (replace with your Firebase project config)
         const firebaseConfig = {
             apiKey: "AIzaSyCrZqNvXI8OpKjwUyScRfmp07CSL0O4J64",
@@ -170,23 +221,23 @@
             messagingSenderId: "952233944316",
             appId: "1:952233944316:web:0b4689277ec5e52a5be379"
         };
-
+    
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
-
+    
         // Reference to the Firestore collections
         const mhDataCollectionRef = collection(db, 'mhdata');
         const coDataCollectionRef = collection(db, 'codata');
         const ozoneDataCollectionRef = collection(db, 'ozone');
-
+    
         // Define pollutant thresholds for Toastify notifications
         const thresholds = {
             co2: 400,   // CO2 level (PPM)
             co: 100,     // CO level (PPM)
             ozone: 0.05  // Ozone level (PPM)
         };
-
+    
         // Function to fetch the latest data from Firestore and display on the cards
         const fetchLatestData = async (collectionRef, containerId, fields, pollutantType) => {
             try {
@@ -195,21 +246,21 @@
                     orderBy("timestamp", "desc"), // Sort by timestamp in descending order
                     limit(1) // Limit to 1 document (latest)
                 );
-                
+    
                 const querySnapshot = await getDocs(q);
-                
+    
                 querySnapshot.forEach((doc) => {
                     const data = doc.data();
                     const container = document.getElementById(containerId);
-
+    
                     fields.forEach((field) => {
                         const title = document.createElement('h5');
                         title.classList.add('text-md', 'font-semibold', 'text-white');
-                        
+    
                         let label = field;
                         let value = data[field] || "No Data";
                         let unit = "";
-
+    
                         if (field === "co2") {
                             label = "CO2";
                             unit = "PPM";
@@ -231,54 +282,132 @@
                             value = (data[field] * 1).toFixed(2);
                             unit = "mg/m³";
                         }
-
+    
                         title.textContent = `${label}: ${value} ${unit}`;
                         container.appendChild(title);
-
+    
                         // Trigger Toastify notification if thresholds are exceeded
-                        if (pollutantType === "co2" && value > thresholds.co2) {
-                            Toastify({
-                                text: "Warning: CO2 levels are too high!",
-                                duration: 10000,
-                                backgroundColor: "linear-gradient(to right, #ff5f6d, #ffc3a0)",
-                                gravity: "top",
-                                position: "center",
-                                stopOnFocus: true,
-                                onClick: function() {}
-                            }).showToast();
-                        } else if (pollutantType === "co" && value > thresholds.co) {
-                            Toastify({
-                                text: "Warning: CO levels are too high!",
-                                duration: 10000,
-                                backgroundColor: "linear-gradient(to right, #ff5f6d, #ffc3a0)",
-                                gravity: "top",
-                                position: "center",
-                                stopOnFocus: true,
-                                onClick: function() {}
-                            }).showToast();
-                        } else if (pollutantType === "ozone" && value > thresholds.o3_ppm) {
-                            Toastify({
-                                text: "Warning: Ozone levels are too high!",
-                                duration: 10000,
-                                backgroundColor: "linear-gradient(to right, #ff5f6d, #ffc3a0)",
-                                gravity: "top",
-                                position: "center",
-                                stopOnFocus: true,
-                                onClick: function() {}
-                            }).showToast();
+                        if (pollutantType === "co2") {
+                                // Display a Toastify warning for high CO2 levels
+                                if (value > 400) {
+                                    Toastify({
+                                        text: "Warning: CO2 levels are too high!",
+                                        duration: 10000,
+                                        backgroundColor: "linear-gradient(to right, #ff5f6d, #ffc3a0)",
+                                        gravity: "top",
+                                        position: "center",
+                                        stopOnFocus: true,
+                                        onClick: function() {}
+                                    }).showToast();
+                                }
+
+                                // Handle different CO2 levels and update the card and status
+                                let co2card = document.getElementById("co2");
+                                let co2status = document.getElementById("co2status");
+
+                                if (value <= 200) {  // Low level of CO2
+                                    // Add a green border for low CO2 levels
+                                    co2card.classList.remove("border-red-500", "border-yellow-500", "border-orange-400");  // Remove other borders
+                                    co2card.classList.add("border-2", "border-green-500");
+                                    co2status.innerText = "Low";  // Update status text to 'Low'
+                                } else if (value <= 400) {  // Moderate level of CO2 (200 to 400 ppm)
+                                    // Add a yellow border for moderate CO2 levels
+                                    co2card.classList.remove("border-red-500", "border-green-500", "border-orange-400");  // Remove other borders
+                                    co2card.classList.add("border-2", "border-yellow-500");
+                                    co2status.innerText = "Moderate";  // Update status text to 'Moderate'
+                                } else {  // High level of CO2 (greater than 400 ppm)
+                                    // Add an orange border for high CO2 levels
+                                    co2card.classList.remove("border-green-500", "border-yellow-500", "border-red-500");  // Remove other borders
+                                    co2card.classList.add("border-2", "border-red-500");
+                                    co2status.innerText = "High";  // Update status text to 'High'
+                                }
+                                let co2text = document.getElementById("co2text").innerText = value + " PPM";
+                            }
+                        else if (pollutantType === "co") {
+                            // Display a Toastify warning for high CO levels
+                            if (value > 100) {
+                                Toastify({
+                                    text: "Warning: CO levels are too high!",
+                                    duration: 10000,
+                                    backgroundColor: "linear-gradient(to right, #ff5f6d, #ffc3a0)",
+                                    gravity: "top",
+                                    position: "center",
+                                    stopOnFocus: true,
+                                    onClick: function() {}
+                                }).showToast();
+                            }
+
+                            // Handle different CO levels and update the card and status
+                            let coCard = document.getElementById("co");
+                            let coStatus = document.getElementById("costatus");
+
+                            if (value <= 50) {  // Low level of CO
+                                // Add a green border for low CO levels
+                                coCard.classList.remove("border-red-500", "border-yellow-500");  // Remove other borders
+                                coCard.classList.add("border-2", "border-green-500");
+                                coStatus.innerText = "Low";  // Update status text to 'Low'
+                            } else if (value <= 100) {  // Moderate level of CO (51 to 100 ppm)
+                                // Add a yellow border for moderate CO levels
+                                coCard.classList.remove("border-green-500", "border-red-500");  // Remove other borders
+                                coCard.classList.add("border-2", "border-yellow-500");
+                                coStatus.innerText = "Moderate";  // Update status text to 'Moderate'
+                            } else {  // High level of CO (101 to 199 ppm or more)
+                                // Add a red border for high CO levels
+                                coCard.classList.remove("border-green-500", "border-yellow-500");  // Remove other borders
+                                coCard.classList.add("border-2", "border-red-500");
+                                coStatus.innerText = "High";  // Update status text to 'High'
+                            }
+                            let cotext = document.getElementById("cotext").innerText = value + " PPM";
                         }
+                        else if (pollutantType === "ozone") {
+                            // Display a Toastify warning for high Ozone levels
+                            if (value > 104) {
+                                Toastify({
+                                    text: "Warning: Ozone levels are too high!",
+                                    duration: 10000,
+                                    backgroundColor: "linear-gradient(to right, #ff5f6d, #ffc3a0)",
+                                    gravity: "top",
+                                    position: "center",
+                                    stopOnFocus: true,
+                                    onClick: function() {}
+                                }).showToast();
+                            }
+
+                            // Handle different Ozone levels and update the card and status
+                            let ozoneCard = document.getElementById("ozone");
+                            let ozoneStatus = document.getElementById("ozonestatus");
+
+                            if (value <= 64) {  // Low level of Ozone
+                                // Add a green border for low Ozone levels
+                                ozoneCard.classList.remove("border-yellow-500", "border-red-500");  // Remove other borders
+                                ozoneCard.classList.add("border-2", "border-green-500");
+                                ozoneStatus.innerText = "Low";  // Update status text to 'Low'
+                            } else if (value <= 84) {  // Moderate level of Ozone (65 to 84)
+                                // Add a yellow border for moderate Ozone levels
+                                ozoneCard.classList.remove("border-green-500", "border-red-500");  // Remove other borders
+                                ozoneCard.classList.add("border-2", "border-yellow-500");
+                                ozoneStatus.innerText = "Moderate";  // Update status text to 'Moderate'
+                            } else {  // High level of Ozone (85 to 104 or more)
+                                // Add a red border for high Ozone levels
+                                ozoneCard.classList.remove("border-green-500", "border-yellow-500");  // Remove other borders
+                                ozoneCard.classList.add("border-2", "border-red-500");
+                                ozoneStatus.innerText = "High";  // Update status text to 'High'
+                            }
+                            let ozonetext = document.getElementById("ozonetext").innerText = value + " PPB";
+                        }
+
                     });
                 });
             } catch (error) {
                 console.error("Error fetching Firestore documents:", error);
             }
         };
-
+    
         // Fetch the latest data for each pollutant
         fetchLatestData(mhDataCollectionRef, 'roundedCard', ['co2'], 'co2');
         fetchLatestData(coDataCollectionRef, 'squareCard', ['co'], 'co');
-        fetchLatestData(ozoneDataCollectionRef, 'ozoneCard', ['O3_mg_m3', 'O3_ppb', 'O3_ppm', 'O3_ug_m3'], 'ozone');
-
+        fetchLatestData(ozoneDataCollectionRef, 'ozoneCard', ['O3_ppb'], 'ozone');
+    
         // Chart.js Setup for pollution trends
         const ctx = document.getElementById('myChart');
         const chartData = {
@@ -308,65 +437,66 @@
                 tension: 0.1
             }]
         };
-
+    
         const config = {
             type: 'line',
             data: chartData,
         
         };
-
+    
         const myChart = new Chart(ctx, config);
-
+    
         // Fetch data for the chart
         const fetchChartData = async () => {
-        try {
-            const co2Data = [];
-            const coData = [];
-            const ozoneData = [];
-            const timestamps = [];
-
-            // Fetch data for CO2, CO, and Ozone (you can modify queries here)
-            const co2Query = query(mhDataCollectionRef, orderBy("timestamp", "desc"), limit(24));
-            const coQuery = query(coDataCollectionRef, orderBy("timestamp", "desc"), limit(24));
-            const ozoneQuery = query(ozoneDataCollectionRef, orderBy("timestamp", "desc"), limit(24));
-
-            const co2Snapshot = await getDocs(co2Query);
-            const coSnapshot = await getDocs(coQuery);
-            const ozoneSnapshot = await getDocs(ozoneQuery);
-
-            co2Snapshot.forEach((doc) => {
-                const data = doc.data();
-                co2Data.push(data.co2); 
-                const formattedDate = format(data.timestamp.toDate(), "MM-dd-yy HH:mm");
-                timestamps.push(formattedDate);
-            });
-
-            coSnapshot.forEach((doc) => {
-                const data = doc.data();
-                coData.push(data.co);
-            });
-
-            ozoneSnapshot.forEach((doc) => {
-                const data = doc.data();
-                ozoneData.push(data.O3_ug_m3);
-            });
-
-            // Update the chart with new data
-            myChart.data.labels = timestamps;
-            myChart.data.datasets[0].data = co2Data;
-            myChart.data.datasets[1].data = coData;
-            myChart.data.datasets[2].data = ozoneData;
-
-            // Re-render the chart
-            myChart.update();
-        } catch (error) {
-            console.error("Error fetching chart data:", error);
-        }
-    };
-
+            try {
+                const co2Data = [];
+                const coData = [];
+                const ozoneData = [];
+                const timestamps = [];
+    
+                // Fetch data for CO2, CO, and Ozone (you can modify queries here)
+                const co2Query = query(mhDataCollectionRef, orderBy("timestamp", "desc"), limit(24));
+                const coQuery = query(coDataCollectionRef, orderBy("timestamp", "desc"), limit(24));
+                const ozoneQuery = query(ozoneDataCollectionRef, orderBy("timestamp", "desc"), limit(24));
+    
+                const co2Snapshot = await getDocs(co2Query);
+                const coSnapshot = await getDocs(coQuery);
+                const ozoneSnapshot = await getDocs(ozoneQuery);
+    
+                co2Snapshot.forEach((doc) => {
+                    const data = doc.data();
+                    co2Data.push(data.co2); 
+                    const formattedDate = format(data.timestamp.toDate(), "MM-dd-yy HH:mm");
+                    timestamps.push(formattedDate);
+                });
+    
+                coSnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    coData.push(data.co);
+                });
+    
+                ozoneSnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    ozoneData.push(data.O3_ug_m3);
+                });
+    
+                // Update the chart with new data
+                myChart.data.labels = timestamps;
+                myChart.data.datasets[0].data = co2Data;
+                myChart.data.datasets[1].data = coData;
+                myChart.data.datasets[2].data = ozoneData;
+    
+                // Re-render the chart
+                myChart.update();
+            } catch (error) {
+                console.error("Error fetching chart data:", error);
+            }
+        };
+    
         // Fetch chart data every 30 seconds
         setInterval(fetchChartData, 30000);
     </script>
+    
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@0.6.0"></script>
