@@ -6,12 +6,34 @@
     <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+
+    <style>
+        #footer {
+            background-color: #002F5E;
+        }
+
+        /* Make sure the eye icon is correctly positioned */
+        .password-container {
+            position: relative;
+        }
+
+        .eye-icon {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body class="bg-gray-100">
 
     <!-- Card Container -->
-    <div class="max-w-md mx-auto mt-8 p-6 bg-white shadow-lg rounded-lg">
-
+    <div class="max-w-md mx-auto justify-center items-center min-h-screen mt-8 p-6 bg-white shadow-lg rounded-lg content">
+        <!-- Center logo -->
+        <a href="" class="flex justify-center items-center mx-auto mb-6">
+            <img src="https://i.imgur.com/zKftcMV.png" class="h-16" alt="FlowBite Logo" />
+        </a>
         <h2 class="text-2xl font-semibold text-center text-gray-900 mb-6">Login to Monitoring</h2>
 
         <form method="POST">
@@ -25,16 +47,23 @@
                     {% endfor %}
                 </ul>
             </div>
-        {% endif %}
+            {% endif %}
+            
             <div class="mb-5">
                 <label for="username" class="block mb-2 text-sm font-medium text-gray-900">Your username</label>
                 <input type="text" id="username" name="username" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="johndoe" required />
             </div>
 
             <!-- Password Field -->
-            <div class="mb-5">
+            <div class="mb-5 password-container">
                 <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Your password</label>
                 <input type="password" id="password" name="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                
+                <!-- Show/Hide Button with provided SVG -->
+                <svg id="eye-icon" class="w-6 h-6 text-gray-800 dark:text-white eye-icon mt-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
+                    <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                </svg>
             </div>
 
             <!-- Submit Button -->
@@ -46,5 +75,42 @@
 
     </div>
 
+    <footer id="footer" class="fixed bottom-0 left-0 z-20 w-full p-4 bg-white border-t border-gray-200 shadow md:flex md:items-center md:justify-between md:p-4 dark:bg-gray-800 dark:border-gray-600">
+        <span class="text-sm text-white sm:text-center">© 2025 <a href="https://flowbite.com/" class="hover:underline">Air Pollution Monitoring | AMA University & Baranggay Baesa</a>. All Rights Reserved.
+        </span>
+        <div class="flex flex-row md:mb-0">
+            <a href="" class="flex items-center">
+                <img src="https://i.imgur.com/zKftcMV.png" class="h-16 me-3" alt="FlowBite Logo" />
+            </a>
+            <a href="" class="flex items-center">
+                <img src="https://i.imgur.com/mkTipwZ.png" class="h-16 me-3" alt="FlowBite Logo" />
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle password visibility
+        const togglePassword = document.getElementById("eye-icon");
+        const passwordField = document.getElementById("password");
+
+        togglePassword.addEventListener("click", function () {
+            // Toggle the password type
+            const type = passwordField.type === "password" ? "text" : "password";
+            passwordField.type = type;
+
+            // Toggle the icon
+            if (passwordField.type === "password") {
+                togglePassword.innerHTML = `
+                    <path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
+                    <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                `; // Eye icon for hidden
+            } else {
+                togglePassword.innerHTML = `
+                    <path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
+                    <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                `; // Eye icon for visible
+            }
+        });
+    </script>
 </body>
 </html>
