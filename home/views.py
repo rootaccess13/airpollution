@@ -24,4 +24,22 @@ def loginUser(request):
             # If authentication failed, display an error message
             messages.error(request, 'Invalid username or password')
 
-    return render(request, 'home/login.
+    return render(request, 'home/login.html')
+
+@login_required
+def calibrate(request):
+    return render(request, "home/calibrate.html")
+
+@login_required
+def connection(request):
+    return render(request, "home/connection.html")
+
+def logoutUser(request):
+    # Log the user out
+    logout(request)
+    
+    # Optionally, display a success message
+    messages.success(request, 'You have been logged out successfully.')
+
+    # Redirect to the login page after logout
+    return redirect('login')
