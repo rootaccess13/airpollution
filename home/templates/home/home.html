@@ -41,65 +41,6 @@
         </div>
     </nav>
 
-<div class="flex items-center min-h-screen mt-6 dark:bg-gray-900">
-    
-	<div class="container max-w-6xl px-5 mx-auto my-28">
-
-        <h1 class="font-bold text-2xl mb-4 underline">Realtime Data</h1>
-
-		<div class="grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
-			<div class="p-5 bg-white rounded shadow-sm">
-				<div class="text-base text-gray-400 ">CO2</div>
-				<div class="flex items-center pt-1">
-					<div class="text-2xl font-bold text-gray-900 ">777 PPM</div>
-					<span class="flex items-center px-2 py-0.5 mx-2 text-sm text-green-600 bg-green-100 rounded-full">
-                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg>
-                        <span>Moderate</span>
-					</span>
-				</div>
-			</div>
-			<div class="p-5 bg-white rounded shadow-sm">
-				<div class="text-base text-gray-400 ">CO</div>
-				<div class="flex items-center pt-1">
-					<div class="text-2xl font-bold text-gray-900 ">122 PPM</div>
-					<span class="flex items-center px-2 py-0.5 mx-2 text-sm text-red-600 bg-red-100 rounded-full">
-                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg>
-                        <span>Low</span>
-					</span>
-				</div>
-			</div>
-			<div class="p-5 bg-white rounded shadow-sm">
-				<div class="text-base text-gray-400 ">Ozone (O3)</div>
-				<div class="flex items-center pt-1">
-					<div class="text-2xl font-bold text-gray-900 ">0.02</div>
-					<span class="flex items-center px-2 py-0.5 mx-2 text-sm text-green-600 bg-green-100 rounded-full">
-                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg>
-                        <span>Low</span>
-					</span>
-				</div>
-			</div>
-			<div class="p-5 bg-white rounded shadow-sm">
-				<div class="text-base text-gray-400 ">PM2.5</div>
-				<div class="flex items-center pt-1">
-					<div class="text-2xl font-bold text-gray-900 ">54 PPM</div>
-					<span class="flex items-center px-2 py-0.5 mx-2 text-sm text-green-600 bg-green-100 rounded-full">
-                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg>
-                        <span>Low</span>
-					</span>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
     <!-- Centering the Cards -->
     <div class="flex flex-col items-center justify-center min-h-screen bg-gray-100 mt-8">
         <!-- First container for the rounded card -->
@@ -130,11 +71,94 @@
 
     </div>
 
-    <!-- Insert this script at the bottom of the HTML, but before you use any Firebase services -->
+    <div class="flex items-center min-h-screen mt-6 dark:bg-gray-900 mb-8">
+    
+        <div class="container max-w-6xl px-5 mx-auto my-28">
+    
+            <h1 class="font-bold text-2xl mb-4 underline">Realtime Data</h1>
+    
+            <div class="grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
+                <div class="p-5 bg-white rounded shadow-sm">
+                    <div class="text-base text-gray-400 ">CO2</div>
+                    <div class="flex items-center pt-1">
+                        <div class="text-2xl font-bold text-gray-900 ">777 PPM</div>
+                        <span class="flex items-center px-2 py-0.5 mx-2 text-sm text-green-600 bg-green-100 rounded-full">
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                            <span>Moderate</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="p-5 bg-white rounded shadow-sm">
+                    <div class="text-base text-gray-400 ">CO</div>
+                    <div class="flex items-center pt-1">
+                        <div class="text-2xl font-bold text-gray-900 ">122 PPM</div>
+                        <span class="flex items-center px-2 py-0.5 mx-2 text-sm text-red-600 bg-red-100 rounded-full">
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                            <span>Low</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="p-5 bg-white rounded shadow-sm">
+                    <div class="text-base text-gray-400 ">Ozone (O3)</div>
+                    <div class="flex items-center pt-1">
+                        <div class="text-2xl font-bold text-gray-900 ">0.02</div>
+                        <span class="flex items-center px-2 py-0.5 mx-2 text-sm text-green-600 bg-green-100 rounded-full">
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                            <span>Low</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="p-5 bg-white rounded shadow-sm">
+                    <div class="text-base text-gray-400 ">PM2.5</div>
+                    <div class="flex items-center pt-1">
+                        <div class="text-2xl font-bold text-gray-900 ">54 PPM</div>
+                        <span class="flex items-center px-2 py-0.5 mx-2 text-sm text-green-600 bg-green-100 rounded-full">
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                            <span>Low</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container w-full mx-auto max-w-4xl p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+        <h1 class="text-2xl font-bold mb-4 text-center">Pollution Trends (Last 24 Hours)</h1>
+        <canvas id="myChart" class="mb-8"></canvas>
+    </div>
+
+    <!-- Footer Mentions -->
+
+
+    <footer class="bg-white rounded-lg shadow m-4 dark:bg-gray-800">
+        <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+          <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2025 <a href="https://flowbite.com/" class="hover:underline">Air Pollution Monitoring | AMA University & Baranggay Baesa</a>. All Rights Reserved.
+        </span>
+        <div class="flex flex-row md:mb-0">
+            <a href="" class="flex items-center">
+                <img src="https://i.imgur.com/zKftcMV.png" class="h-16 me-3" alt="FlowBite Logo" />
+            </a>
+            <a href="" class="flex items-center">
+                <img src="https://i.imgur.com/mkTipwZ.png" class="h-16 me-3" alt="FlowBite Logo" />
+            </a>
+        </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/date-fns@2.28.0"></script>
+
     <script type="module">
         // Import necessary Firebase SDK modules
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js';
         import { getFirestore, collection, getDocs, query, orderBy, limit } from 'https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js';
+        import { format } from 'https://cdn.jsdelivr.net/npm/date-fns@2.28.0/esm/index.js';
 
         // Firebase config (replace with your Firebase project config)
         const firebaseConfig = {
@@ -254,11 +278,101 @@
         fetchLatestData(mhDataCollectionRef, 'roundedCard', ['co2'], 'co2');
         fetchLatestData(coDataCollectionRef, 'squareCard', ['co'], 'co');
         fetchLatestData(ozoneDataCollectionRef, 'ozoneCard', ['O3_mg_m3', 'O3_ppb', 'O3_ppm', 'O3_ug_m3'], 'ozone');
+
+        // Chart.js Setup for pollution trends
+        const ctx = document.getElementById('myChart');
+        const chartData = {
+            labels: [],  // Time stamps for the X-axis
+            datasets: [{
+                label: 'CO2 Levels (PPM)',
+                data: [],  // Array of CO2 data
+                borderColor: 'rgba(255, 99, 132, 1)',
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                fill: false,
+                tension: 0.1
+            },
+            {
+                label: 'CO Levels (PPM)',
+                data: [],  // Array of CO data
+                borderColor: 'rgba(54, 162, 235, 1)',
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                fill: false,
+                tension: 0.1
+            },
+            {
+                label: 'Ozone Levels (µg/m³)',
+                data: [],  // Array of Ozone data
+                borderColor: 'rgba(75, 192, 192, 1)',
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                fill: false,
+                tension: 0.1
+            }]
+        };
+
+        const config = {
+            type: 'line',
+            data: chartData,
+        
+        };
+
+        const myChart = new Chart(ctx, config);
+
+        // Fetch data for the chart
+        const fetchChartData = async () => {
+        try {
+            const co2Data = [];
+            const coData = [];
+            const ozoneData = [];
+            const timestamps = [];
+
+            // Fetch data for CO2, CO, and Ozone (you can modify queries here)
+            const co2Query = query(mhDataCollectionRef, orderBy("timestamp", "desc"), limit(24));
+            const coQuery = query(coDataCollectionRef, orderBy("timestamp", "desc"), limit(24));
+            const ozoneQuery = query(ozoneDataCollectionRef, orderBy("timestamp", "desc"), limit(24));
+
+            const co2Snapshot = await getDocs(co2Query);
+            const coSnapshot = await getDocs(coQuery);
+            const ozoneSnapshot = await getDocs(ozoneQuery);
+
+            co2Snapshot.forEach((doc) => {
+                const data = doc.data();
+                co2Data.push(data.co2); 
+                const formattedDate = format(data.timestamp.toDate(), "MM-dd-yy HH:mm");
+                timestamps.push(formattedDate);
+            });
+
+            coSnapshot.forEach((doc) => {
+                const data = doc.data();
+                coData.push(data.co);
+            });
+
+            ozoneSnapshot.forEach((doc) => {
+                const data = doc.data();
+                ozoneData.push(data.O3_ug_m3);
+            });
+
+            // Update the chart with new data
+            myChart.data.labels = timestamps;
+            myChart.data.datasets[0].data = co2Data;
+            myChart.data.datasets[1].data = coData;
+            myChart.data.datasets[2].data = ozoneData;
+
+            // Re-render the chart
+            myChart.update();
+        } catch (error) {
+            console.error("Error fetching chart data:", error);
+        }
+    };
+
+        // Fetch chart data every 30 seconds
+        setInterval(fetchChartData, 30000);
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@0.6.0"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.js"></script>
 
 </body>
 </html>
