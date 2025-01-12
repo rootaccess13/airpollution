@@ -114,8 +114,8 @@ CSRF_TRUSTED_ORIGINS = [
     "http://localhost:8000", 
 ]
 
-
 LOGIN_REDIRECT_URL = '/login'
+LOGIN_URL = '/login'
 
 
 # Internationalization
