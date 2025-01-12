@@ -77,17 +77,18 @@ WSGI_APPLICATION = 'airpollution.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'verceldb',
-        'USER': 'default',
-        'PASSWORD': 'sbMF4Krkzf3B',
-        'HOST': 'ep-plain-firefly-a43ijorp-pooler.us-east-1.aws.neon.tech',
-        'PORT': '5432',
+        'NAME': 'neondb',  # Database name
+        'USER': 'neondb_owner',  # Database user
+        'PASSWORD': 'hAy6Zi5erLVH',  # Database password
+        'HOST': 'ep-silent-pond-a19vi10o-pooler.ap-southeast-1.aws.neon.tech',  # Database host
+        'PORT': '5432',  # Database port
         'OPTIONS': {
-            'sslmode': 'require',
-            'options': 'endpoint=ep-plain-firefly-a43ijorp-pooler',
+            'sslmode': 'require',  # SSL mode required for secure connections
+            'options': 'ep-silent-pond-a19vi10o-pooler',  # Optional endpoint
         },
     }
 }
+
 
 
 # Password validation
