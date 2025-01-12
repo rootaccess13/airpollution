@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Pollution Monitoring</title>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+</head>
+<body class="bg-gray-100">
+
+    <!-- Navbar -->
+    <nav class="bg-white border-gray-200 dark:bg-gray-900">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Air Pollution Monitoring</span>
+            </a>
+            <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                </svg>
+            </button>
+            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <li>
+                        <a href="{% url 'home' %}" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Home</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'calibrate' %}" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Calibrate</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'connection' %}" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Connections</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'logout' %}" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<div class="flex items-center min-h-screen mt-6 dark:bg-gray-900">
+    
+	<div class="container max-w-6xl px-5 mx-auto my-28">
+
+        <h1 class="font-bold text-2xl mb-4 underline">Realtime Data</h1>
+
+		<div class="grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
+			<div class="p-5 bg-white rounded shadow-sm">
+				<div class="text-base text-gray-400 ">CO2</div>
+				<div class="flex items-center pt-1">
+					<div class="text-2xl font-bold text-gray-900 ">777 PPM</div>
+					<span class="flex items-center px-2 py-0.5 mx-2 text-sm text-green-600 bg-green-100 rounded-full">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        <span>Moderate</span>
+					</span>
+				</div>
+			</div>
+			<div class="p-5 bg-white rounded shadow-sm">
+				<div class="text-base text-gray-400 ">CO</div>
+				<div class="flex items-center pt-1">
+					<div class="text-2xl font-bold text-gray-900 ">122 PPM</div>
+					<span class="flex items-center px-2 py-0.5 mx-2 text-sm text-red-600 bg-red-100 rounded-full">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        <span>Low</span>
+					</span>
+				</div>
+			</div>
+			<div class="p-5 bg-white rounded shadow-sm">
+				<div class="text-base text-gray-400 ">Ozone (O3)</div>
+				<div class="flex items-center pt-1">
+					<div class="text-2xl font-bold text-gray-900 ">0.02</div>
+					<span class="flex items-center px-2 py-0.5 mx-2 text-sm text-green-600 bg-green-100 rounded-full">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        <span>Low</span>
+					</span>
+				</div>
+			</div>
+			<div class="p-5 bg-white rounded shadow-sm">
+				<div class="text-base text-gray-400 ">PM2.5</div>
+				<div class="flex items-center pt-1">
+					<div class="text-2xl font-bold text-gray-900 ">54 PPM</div>
+					<span class="flex items-center px-2 py-0.5 mx-2 text-sm text-green-600 bg-green-100 rounded-full">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        <span>Low</span>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+    <!-- Centering the Cards -->
+    <div class="flex flex-col items-center justify-center min-h-screen bg-gray-100 mt-8">
+        <!-- First container for the rounded card -->
+        <div id="roundedContainer" class="flex flex-col items-center space-y-4">
+            <!-- Rounded card style -->
+            <div id="roundedCard" class="flex items-center bg-gray-800 justify-center flex-col w-64 h-64 p-4 border border-gray-300 shadow-lg transition duration-300 ease-in-out rounded-full">
+                <span class="text-white font-semibold text-2xl">Central AQI</span>
+                <!-- Data fetched from Firestore will be inserted here -->
+            </div>
+        </div>
+
+        <!-- Second container for the square card -->
+        <div id="squareContainer" class="flex flex-col items-center space-y-4 mt-4">
+            <!-- Square card style -->
+            <h1 class="font-semibold">Carbon Monoxide</h1>
+            <div id="squareCard" class="flex items-center bg-gray-800 justify-center flex-col w-64 h-32 p-4 rounded-lg border border-gray-300 shadow-lg transition duration-300 ease-in-out">
+                <!-- Data fetched from Firestore will be inserted here -->
+            </div>
+        </div>
+
+        <div id="ozoneContainer" class="flex flex-col items-center space-y-4 mt-4">
+            <!-- Square card style for Ozone -->
+             <h1 class="font-semibold"> Ozone</h1>
+            <div id="ozoneCard" class="flex items-center bg-gray-800 justify-center flex-col w-64 h-auto p-4 border border-gray-300 shadow-lg transition duration-300 ease-in-out rounded-lg">
+                <!-- Ozone data will be inserted here -->
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Insert this script at the bottom of the HTML, but before you use any Firebase services -->
+    <script type="module">
+        // Import necessary Firebase SDK modules
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js';
+        import { getFirestore, collection, getDocs, query, orderBy, limit } from 'https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js';
+
+        // Firebase config (replace with your Firebase project config)
+        const firebaseConfig = {
+            apiKey: "AIzaSyCrZqNvXI8OpKjwUyScRfmp07CSL0O4J64",
+            authDomain: "airpollution-57e30.firebaseapp.com",
+            databaseURL: "https://airpollution-57e30-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "airpollution-57e30",
+            storageBucket: "airpollution-57e30.firebasestorage.app",
+            messagingSenderId: "952233944316",
+            appId: "1:952233944316:web:0b4689277ec5e52a5be379"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Reference to the Firestore collections
+        const mhDataCollectionRef = collection(db, 'mhdata');
+        const coDataCollectionRef = collection(db, 'codata');
+        const ozoneDataCollectionRef = collection(db, 'ozone');
+
+        // Define pollutant thresholds for Toastify notifications
+        const thresholds = {
+            co2: 400,   // CO2 level (PPM)
+            co: 100,     // CO level (PPM)
+            ozone: 0.05  // Ozone level (PPM)
+        };
+
+        // Function to fetch the latest data from Firestore and display on the cards
+        const fetchLatestData = async (collectionRef, containerId, fields, pollutantType) => {
+            try {
+                const q = query(
+                    collectionRef,
+                    orderBy("timestamp", "desc"), // Sort by timestamp in descending order
+                    limit(1) // Limit to 1 document (latest)
+                );
+                
+                const querySnapshot = await getDocs(q);
+                
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    const container = document.getElementById(containerId);
+
+                    fields.forEach((field) => {
+                        const title = document.createElement('h5');
+                        title.classList.add('text-md', 'font-semibold', 'text-white');
+                        
+                        let label = field;
+                        let value = data[field] || "No Data";
+                        let unit = "";
+
+                        if (field === "co2") {
+                            label = "CO2";
+                            unit = "PPM";
+                        } else if (field === "co") {
+                            label = "CO";
+                            unit = "PPM";
+                        } else if (field === "O3_ppb") {
+                            label = "O3-PPB";
+                            unit = "PPB";
+                        } else if (field === "O3_ppm") {
+                            label = "O3-PPM";
+                            unit = "PPM";
+                        } else if (field === "O3_ug_m3") {
+                            label = "O3-µg/m³";
+                            value = (data[field] * 1).toFixed(2); // Format the value
+                            unit = "µg/m³";
+                        } else if (field === "O3_mg_m3") {
+                            label = "O3-mg/m³";
+                            value = (data[field] * 1).toFixed(2);
+                            unit = "mg/m³";
+                        }
+
+                        title.textContent = `${label}: ${value} ${unit}`;
+                        container.appendChild(title);
+
+                        // Trigger Toastify notification if thresholds are exceeded
+                        if (pollutantType === "co2" && value > thresholds.co2) {
+                            Toastify({
+                                text: "Warning: CO2 levels are too high!",
+                                duration: 10000,
+                                backgroundColor: "linear-gradient(to right, #ff5f6d, #ffc3a0)",
+                                gravity: "top",
+                                position: "center",
+                                stopOnFocus: true,
+                                onClick: function() {}
+                            }).showToast();
+                        } else if (pollutantType === "co" && value > thresholds.co) {
+                            Toastify({
+                                text: "Warning: CO levels are too high!",
+                                duration: 10000,
+                                backgroundColor: "linear-gradient(to right, #ff5f6d, #ffc3a0)",
+                                gravity: "top",
+                                position: "center",
+                                stopOnFocus: true,
+                                onClick: function() {}
+                            }).showToast();
+                        } else if (pollutantType === "ozone" && value > thresholds.o3_ppm) {
+                            Toastify({
+                                text: "Warning: Ozone levels are too high!",
+                                duration: 10000,
+                                backgroundColor: "linear-gradient(to right, #ff5f6d, #ffc3a0)",
+                                gravity: "top",
+                                position: "center",
+                                stopOnFocus: true,
+                                onClick: function() {}
+                            }).showToast();
+                        }
+                    });
+                });
+            } catch (error) {
+                console.error("Error fetching Firestore documents:", error);
+            }
+        };
+
+        // Fetch the latest data for each pollutant
+        fetchLatestData(mhDataCollectionRef, 'roundedCard', ['co2'], 'co2');
+        fetchLatestData(coDataCollectionRef, 'squareCard', ['co'], 'co');
+        fetchLatestData(ozoneDataCollectionRef, 'ozoneCard', ['O3_mg_m3', 'O3_ppb', 'O3_ppm', 'O3_ug_m3'], 'ozone');
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+
+</body>
+</html>
