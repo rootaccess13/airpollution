@@ -16,7 +16,7 @@
 <body class="bg-gray-100">
     <nav id="navBar" class="border-gray-200 dark:bg-gray-900">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Air Pollution Monitoring</span>
             </a>
             <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
@@ -51,84 +51,10 @@
             <!-- Rounded card style -->
             <div id="roundedCard" class="flex items-center bg-gray-800 justify-center flex-col w-64 h-64 p-4 border border-gray-300 shadow-lg transition duration-300 ease-in-out rounded-full">
                 <span class="text-white font-semibold text-2xl">Central AQI</span>
-                <!-- Data fetched from Firestore will be inserted here -->
+                <h1 id="centralaqi" class="text-2xl text-white font-bold"></h1>
             </div>
-        </div>
-
-
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-6">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <thead class="text-xs text-gray-700 uppercase dark:text-gray-400">
-                    <tr>
-                        <th scope="col" class="px-6 py-3 bg-gray-50 dark:bg-gray-800">
-                            Pollutants
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Levels
-                        </th>
-                        <th scope="col" class="px-6 py-3 bg-gray-50 dark:bg-gray-800">
-                            Air Quality
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="border-b border-gray-200 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                            CO2 (Carbon Dioxide)
-                        </th>
-                        <td class="px-6 py-4">
-                            400-800 ppm
-                        </td>
-                        <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
-                            Good
-                        </td>
-                        
-                    </tr>
-                    <tr class="border-b border-gray-200 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                            CO2 (Carbon Dioxide)
-                        </th>
-                        <td class="px-6 py-4">
-                            800-1200 ppm
-                        </td>
-                        <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
-                            Moderate
-                        </td>
-                        
-                    </tr>
-                    <tr class="border-b border-gray-200 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                            CO2 (Carbon Dioxide)
-                        </th>
-                        <td class="px-6 py-4">
-                            1200-1800 ppm
-                        </td>
-                        <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
-                            High
-                        </td>
-                        
-                    </tr>
-                </tbody>
-            </table>
         </div>
         
-        <!-- Second container for the square card -->
-        <div id="squareContainer" class="hidden flex flex-col items-center space-y-4 mt-4">
-            <!-- Square card style -->
-            <h1 class="font-semibold">Carbon Monoxide</h1>
-            <div id="squareCard" class="flex items-center bg-gray-800 justify-center flex-col w-64 h-32 p-4 rounded-lg border border-gray-300 shadow-lg transition duration-300 ease-in-out">
-                <!-- Data fetched from Firestore will be inserted here -->
-            </div>
-        </div>
-
-        <div id="ozoneContainer" class="hidden flex flex-col items-center space-y-4 mt-4">
-            <!-- Square card style for Ozone -->
-             <h1 class="font-semibold"> Ozone</h1>
-            <div id="ozoneCard" class="flex items-center bg-gray-800 justify-center flex-col w-64 h-auto p-4 border border-gray-300 shadow-lg transition duration-300 ease-in-out rounded-lg">
-                <!-- Ozone data will be inserted here -->
-            </div>
-        </div>
-
     </div>
 
     <div class="flex items-center min-h-screen mt-6 dark:bg-gray-900 mb-8 mr-4">
@@ -138,7 +64,7 @@
             <h1 class="font-bold text-2xl mb-4 underline">Realtime Data</h1>
     
             <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-                <div id="co2" class="p-5 bg-white rounded shadow-sm">
+                <div id="co2" class="p-5 bg-white rounded shadow-sm" data-modal-target="small-modal" data-modal-toggle="small-modal">
                     <div class="text-base text-gray-400 ">CO2</div>
                     <div class="flex items-center pt-1">
                         <div id="co2text" class="text-2xl font-bold text-gray-900 "></div>
@@ -147,16 +73,16 @@
                         </span>
                     </div>
                 </div>
-                <div id="co" class="p-5 bg-white rounded shadow-sm">
+                <div id="co" class="p-5 bg-white rounded shadow-sm" data-modal-target="co-modal" data-modal-toggle="co-modal">
                     <div class="text-base text-gray-400 ">CO</div>
                     <div class="flex items-center pt-1">
                         <div id="cotext" class="text-2xl font-bold text-gray-900 "></div>
-                        <span class="flex items-center px-2 py-0.5 mx-2 text-sm text-red-600 bg-red-100 rounded-full">
+                        <span class="flex items-center px-2 py-0.5 mx-2 text-sm text-green-600 bg-red-100 rounded-full">
                             <span id="costatus"></span>
                         </span>
                     </div>
                 </div>
-                <div id="ozone" class="p-5 bg-white rounded shadow-sm">
+                <div id="ozone" class="p-5 bg-white rounded shadow-sm" data-modal-target="ozone-modal" data-modal-toggle="ozone-modal">
                     <div class="text-base text-gray-400 ">Ozone (O3)</div>
                     <div class="flex items-center pt-1">
                         <div id="ozonetext" class="text-2xl font-bold text-gray-900 "></div>
@@ -165,15 +91,15 @@
                         </span>
                     </div>
                 </div>
-                <div class="p-5 bg-white rounded shadow-sm">
+                <div id="pm" class="p-5 bg-white rounded shadow-sm" data-modal-target="pm-modal" data-modal-toggle="pm-modal">
                     <div class="text-base text-gray-400 ">PM2.5</div>
                     <div class="flex items-center pt-1">
-                        <div class="text-2xl font-bold text-gray-900 ">54 PPM</div>
+                        <div id="pmtext" class="text-2xl font-bold text-gray-900 "></div>
                         <span class="flex items-center px-2 py-0.5 mx-2 text-sm text-green-600 bg-green-100 rounded-full">
                             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                             </svg>
-                            <span>Low</span>
+                            <span id="pmstatus"></span>
                         </span>
                     </div>
                 </div>
@@ -186,8 +112,369 @@
         <canvas id="myChart" class="mb-8"></canvas>
     </div>
 
-    <!-- Footer Mentions -->
+    <div id="small-modal" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative w-full max-w-lg max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                    <h3 class="text-xl font-medium text-gray-900 dark:text-white">
+                        CO2 (Carbon Dioxide) Pollutant Level
+                    </h3>
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="small-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-6">
+                        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                            <thead class="text-xs text-gray-700 uppercase dark:text-gray-400">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3 bg-gray-50 dark:bg-gray-800">
+                                        Pollutants
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Levels
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 bg-gray-50 dark:bg-gray-800">
+                                        Air Quality
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-200 dark:border-gray-700">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                                        CO2 (Carbon Dioxide)
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        400-800 ppm
+                                    </td>
+                                    <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
+                                        Good
+                                    </td>
+                                    
+                                </tr>
+                                <tr class="border-b border-gray-200 dark:border-gray-700">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                                        CO2 (Carbon Dioxide)
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        800-1200 ppm
+                                    </td>
+                                    <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
+                                        Moderate
+                                    </td>
+                                    
+                                </tr>
+                                <tr class="border-b border-gray-200 dark:border-gray-700">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                                        CO2 (Carbon Dioxide)
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        1200-1800 ppm
+                                    </td>
+                                    <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
+                                        High
+                                    </td>
+                                    
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <button id="downloadCO2DataBtn" type="button" class="w-full py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Download CO2 Overall Data (.pdf)</button>
+                    <button id="downloadCO2DataBtnCSV" type="button" class="w-full py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Download CO2 Overall Data (.csv)</button>
 
+                </div>
+                <!-- Modal footer -->
+                <!-- <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+                    <button data-modal-hide="small-modal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">I accept</button>
+                    <button data-modal-hide="small-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Decline</button>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <div id="co-modal" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative w-full max-w-lg max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                    <h3 class="text-xl font-medium text-gray-900 dark:text-white">
+                        CO (Carbon Monoxide) Pollutant Level
+                    </h3>
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="co-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-6">
+                        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                            <thead class="text-xs text-gray-700 uppercase dark:text-gray-400">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3 bg-gray-50 dark:bg-gray-800">
+                                        Pollutants
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Levels
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 bg-gray-50 dark:bg-gray-800">
+                                        Air Quality
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-200 dark:border-gray-700">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                                        CO (Carbon Monoxide)
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        Below 5 ppm
+                                    </td>
+                                    <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
+                                        Low
+                                    </td>
+                                    
+                                </tr>
+                                <tr class="border-b border-gray-200 dark:border-gray-700">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                                        CO (Carbon Monoxide)
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        5-15 ppm
+                                    </td>
+                                    <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
+                                        Moderate
+                                    </td>
+                                    
+                                </tr>
+                                <tr class="border-b border-gray-200 dark:border-gray-700">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                                        CO (Carbon Monoxide)
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        35-100 ppm
+                                    </td>
+                                    <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
+                                        High
+                                    </td>
+                                    
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <button id="downloadCODataBtn" type="button" class="w-full py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Download CO Overall Data (.pdf)</button>
+                    <button id="downloadCODataBtnCSV" type="button" class="w-full py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Download CO Overall Data (.csv)</button>
+
+                </div>
+                <!-- Modal footer -->
+                <!-- <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+                    <button data-modal-hide="small-modal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">I accept</button>
+                    <button data-modal-hide="small-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Decline</button>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <div id="ozone-modal" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative w-full max-w-lg max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                    <h3 class="text-xl font-medium text-gray-900 dark:text-white">
+                        O3 (Ozone) Pollutant Level
+                    </h3>
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="ozone-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-6">
+                        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                            <thead class="text-xs text-gray-700 uppercase dark:text-gray-400">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3 bg-gray-50 dark:bg-gray-800">
+                                        Pollutants
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Levels
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 bg-gray-50 dark:bg-gray-800">
+                                        Air Quality
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-200 dark:border-gray-700">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                                        O3 (Ozone)
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        0.00 - 0.059 ppm
+                                    </td>
+                                    <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
+                                        Low
+                                    </td>
+                                    
+                                </tr>
+                                <tr class="border-b border-gray-200 dark:border-gray-700">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                                        O3 (Ozone)
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        0.060 - 0.075 ppm
+                                    </td>
+                                    <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
+                                        Moderate
+                                    </td>
+                                    
+                                </tr>
+                                <tr class="border-b border-gray-200 dark:border-gray-700">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                                        O3 (Ozone)
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        0.076 - 0.095 ppm
+                                    </td>
+                                    <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
+                                        High
+                                    </td>
+                                    
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <button id="downloadOzoneDataBtn" type="button" class="w-full py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Download Ozone Overall Data (.pdf)</button>
+                    <button id="downloadOzoneDataBtnCSV" type="button" class="w-full py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Download Ozone Overall Data (.csv)</button>
+
+                </div>
+                <!-- Modal footer -->
+                <!-- <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+                    <button data-modal-hide="small-modal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">I accept</button>
+                    <button data-modal-hide="small-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Decline</button>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <div id="pm-modal" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative w-full max-w-lg max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                    <h3 class="text-xl font-medium text-gray-900 dark:text-white">
+                        PM2.5 (Dust | Smoke) Pollutant Level
+                    </h3>
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="pm-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-6">
+                        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                            <thead class="text-xs text-gray-700 uppercase dark:text-gray-400">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3 bg-gray-50 dark:bg-gray-800">
+                                        Pollutants
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Levels
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 bg-gray-50 dark:bg-gray-800">
+                                        Air Quality
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-200 dark:border-gray-700">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                                        PM2.5 (Dust)
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        0 - 50 ppm
+                                    </td>
+                                    <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
+                                        Low
+                                    </td>
+                                    
+                                </tr>
+                                <tr class="border-b border-gray-200 dark:border-gray-700">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                                        PM2.5 (Dust)
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        51 - 100 ppm
+                                    </td>
+                                    <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
+                                        Moderate
+                                    </td>
+                                    
+                                </tr>
+                                <tr class="border-b border-gray-200 dark:border-gray-700">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                                        PM2.5 (Dust)
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        101 - 150 ppm
+                                    </td>
+                                    <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
+                                        High
+                                    </td>
+                                    
+                                </tr>
+                                <tr class="border-b border-gray-200 dark:border-gray-700">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                                        PM2.5 (Dust)
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        151 - 200 ppm
+                                    </td>
+                                    <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
+                                        Very High (Unhealthy)
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-200 dark:border-gray-700">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                                        PM2.5 (Dust)
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        201 - 300 ppm
+                                    </td>
+                                    <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
+                                        Extremely High (Very Unhealthy)
+                                    </td>
+                                    
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <button id="downloadPmDataBtn" type="button" class="w-full py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Download PM2.5 Overall Data (.pdf)</button>
+                    <button id="downloadPmDataBtnCSV" type="button" class="w-full py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Download PM2.5 Overall Data (.csv)</button>
+
+                </div>
+                <!-- Modal footer -->
+                <!-- <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+                    <button data-modal-hide="small-modal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">I accept</button>
+                    <button data-modal-hide="small-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Decline</button>
+                </div> -->
+            </div>
+        </div>
+    </div>
 
     <footer id="footer" class="rounded-lg shadow m-4">
         <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
@@ -204,12 +491,14 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/date-fns@2.28.0"></script>
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
 
     <script type="module">
         // Import necessary Firebase SDK modules
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js';
         import { getFirestore, collection, getDocs, query, orderBy, limit } from 'https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js';
         import { format } from 'https://cdn.jsdelivr.net/npm/date-fns@2.28.0/esm/index.js';
+
     
         // Firebase config (replace with your Firebase project config)
         const firebaseConfig = {
@@ -230,6 +519,7 @@
         const mhDataCollectionRef = collection(db, 'mhdata');
         const coDataCollectionRef = collection(db, 'codata');
         const ozoneDataCollectionRef = collection(db, 'ozone');
+        const pmDataCollectionRef = collection(db, 'pmdata');
     
         // Define pollutant thresholds for Toastify notifications
         const thresholds = {
@@ -239,7 +529,7 @@
         };
     
         // Function to fetch the latest data from Firestore and display on the cards
-        const fetchLatestData = async (collectionRef, containerId, fields, pollutantType) => {
+        const fetchLatestData = async (collectionRef, fields, pollutantType) => {
             try {
                 const q = query(
                     collectionRef,
@@ -251,51 +541,20 @@
     
                 querySnapshot.forEach((doc) => {
                     const data = doc.data();
-                    const container = document.getElementById(containerId);
     
                     fields.forEach((field) => {
-                        const title = document.createElement('h5');
-                        title.classList.add('text-md', 'font-semibold', 'text-white');
-    
-                        let label = field;
-                        let value = data[field] || "No Data";
-                        let unit = "";
-    
-                        if (field === "co2") {
-                            label = "CO2";
-                            unit = "PPM";
-                        } else if (field === "co") {
-                            label = "CO";
-                            unit = "PPM";
-                        } else if (field === "O3_ppb") {
-                            label = "O3-PPB";
-                            unit = "PPB";
-                        } else if (field === "O3_ppm") {
-                            label = "O3-PPM";
-                            unit = "PPM";
-                        } else if (field === "O3_ug_m3") {
-                            label = "O3-µg/m³";
-                            value = (data[field] * 1).toFixed(2); // Format the value
-                            unit = "µg/m³";
-                        } else if (field === "O3_mg_m3") {
-                            label = "O3-mg/m³";
-                            value = (data[field] * 1).toFixed(2);
-                            unit = "mg/m³";
-                        }
-    
-                        title.textContent = `${label}: ${value} ${unit}`;
-                        container.appendChild(title);
+                        let value = data[field] || "Very Low";
     
                         // Trigger Toastify notification if thresholds are exceeded
                         if (pollutantType === "co2") {
                                 // Display a Toastify warning for high CO2 levels
-                                if (value > 400) {
+                                if (value > 1200 ) {
                                     Toastify({
                                         text: "Warning: CO2 levels are too high!",
                                         duration: 10000,
                                         backgroundColor: "linear-gradient(to right, #ff5f6d, #ffc3a0)",
                                         gravity: "top",
-                                        position: "center",
+                                        position: "right",
                                         stopOnFocus: true,
                                         onClick: function() {}
                                     }).showToast();
@@ -305,60 +564,70 @@
                                 let co2card = document.getElementById("co2");
                                 let co2status = document.getElementById("co2status");
 
-                                if (value <= 200) {  // Low level of CO2
+                                if (value <= 800) {  // Low level of CO2 (400 to 800 ppm)
                                     // Add a green border for low CO2 levels
                                     co2card.classList.remove("border-red-500", "border-yellow-500", "border-orange-400");  // Remove other borders
                                     co2card.classList.add("border-2", "border-green-500");
                                     co2status.innerText = "Low";  // Update status text to 'Low'
-                                } else if (value <= 400) {  // Moderate level of CO2 (200 to 400 ppm)
+                                } else if (value <= 1200) {  // Moderate level of CO2 (800 to 1200 ppm)
                                     // Add a yellow border for moderate CO2 levels
                                     co2card.classList.remove("border-red-500", "border-green-500", "border-orange-400");  // Remove other borders
-                                    co2card.classList.add("border-2", "border-yellow-500");
+                                    co2card.classList.add("border-2", "border-yellow-300");
                                     co2status.innerText = "Moderate";  // Update status text to 'Moderate'
-                                } else {  // High level of CO2 (greater than 400 ppm)
+                                } else if (value <= 1800) {  // High level of CO2 (1200 to 1800 ppm)
                                     // Add an orange border for high CO2 levels
                                     co2card.classList.remove("border-green-500", "border-yellow-500", "border-red-500");  // Remove other borders
-                                    co2card.classList.add("border-2", "border-red-500");
+                                    co2card.classList.add("border-2", "border-orange-400");
                                     co2status.innerText = "High";  // Update status text to 'High'
+                                } else {  // Very High level of CO2 (greater than 1800 ppm)
+                                    // Add a red border for very high CO2 levels
+                                    co2card.classList.remove("border-green-500", "border-yellow-500", "border-orange-400");  // Remove other borders
+                                    co2card.classList.add("border-2", "border-red-500");
+                                    co2status.innerText = "Very High";  // Update status text to 'Very High'
                                 }
+
                                 let co2text = document.getElementById("co2text").innerText = value + " PPM";
+                                let centralaqi = document.getElementById("centralaqi").innerText = value + " PPM";
                             }
-                        else if (pollutantType === "co") {
-                            // Display a Toastify warning for high CO levels
-                            if (value > 100) {
-                                Toastify({
-                                    text: "Warning: CO levels are too high!",
-                                    duration: 10000,
-                                    backgroundColor: "linear-gradient(to right, #ff5f6d, #ffc3a0)",
-                                    gravity: "top",
-                                    position: "center",
-                                    stopOnFocus: true,
-                                    onClick: function() {}
-                                }).showToast();
+                            else if (pollutantType === "co") {
+                                // Display a Toastify warning for high CO levels (above 35 ppm)
+                                if (value > 15) {
+                                    Toastify({
+                                        text: "Warning: CO levels are too high!",
+                                        duration: 3000,
+                                        backgroundColor: "linear-gradient(to right, #ff5f6d, #ffc3a0)",
+                                        gravity: "top",
+                                        position: "right",
+                                        stopOnFocus: true,
+                                        onClick: function() {}
+                                    }).showToast();
+                                }
+
+                                // Handle different CO levels and update the card and status
+                                let coCard = document.getElementById("co");
+                                let coStatus = document.getElementById("costatus");
+
+                                if (value < 5) {  // Low level of CO (Below 5 ppm)
+                                    // Add a green border for low CO levels
+                                    coCard.classList.remove("border-red-500", "border-yellow-500");  // Remove other borders
+                                    coCard.classList.add("border-2", "border-green-500");
+                                    coStatus.innerText = "Low";  // Update status text to 'Low'
+                                } else if (value <= 15) {  // Moderate level of CO (5 to 15 ppm)
+                                    // Add a yellow border for moderate CO levels
+                                    coCard.classList.remove("border-green-500", "border-red-500");  // Remove other borders
+                                    coCard.classList.add("border-2", "border-yellow-300");
+                                    coStatus.innerText = "Moderate";  // Update status text to 'Moderate'
+                                } else if (value <= 100) {  // High level of CO (35 to 100 ppm)
+                                    // Add a red border for high CO levels
+                                    coCard.classList.remove("border-green-500", "border-yellow-500");  // Remove other borders
+                                    coCard.classList.add("border-2", "border-red-500");
+                                    coStatus.innerText = "High";  // Update status text to 'High'
+                                }
+
+                                // Display the CO level in text on the card
+                                let cotext = document.getElementById("cotext").innerText = value + " PPM";
                             }
 
-                            // Handle different CO levels and update the card and status
-                            let coCard = document.getElementById("co");
-                            let coStatus = document.getElementById("costatus");
-
-                            if (value <= 50) {  // Low level of CO
-                                // Add a green border for low CO levels
-                                coCard.classList.remove("border-red-500", "border-yellow-500");  // Remove other borders
-                                coCard.classList.add("border-2", "border-green-500");
-                                coStatus.innerText = "Low";  // Update status text to 'Low'
-                            } else if (value <= 100) {  // Moderate level of CO (51 to 100 ppm)
-                                // Add a yellow border for moderate CO levels
-                                coCard.classList.remove("border-green-500", "border-red-500");  // Remove other borders
-                                coCard.classList.add("border-2", "border-yellow-500");
-                                coStatus.innerText = "Moderate";  // Update status text to 'Moderate'
-                            } else {  // High level of CO (101 to 199 ppm or more)
-                                // Add a red border for high CO levels
-                                coCard.classList.remove("border-green-500", "border-yellow-500");  // Remove other borders
-                                coCard.classList.add("border-2", "border-red-500");
-                                coStatus.innerText = "High";  // Update status text to 'High'
-                            }
-                            let cotext = document.getElementById("cotext").innerText = value + " PPM";
-                        }
                         else if (pollutantType === "ozone") {
                             // Display a Toastify warning for high Ozone levels
                             if (value > 104) {
@@ -367,7 +636,7 @@
                                     duration: 10000,
                                     backgroundColor: "linear-gradient(to right, #ff5f6d, #ffc3a0)",
                                     gravity: "top",
-                                    position: "center",
+                                    position: "right",
                                     stopOnFocus: true,
                                     onClick: function() {}
                                 }).showToast();
@@ -385,7 +654,7 @@
                             } else if (value <= 84) {  // Moderate level of Ozone (65 to 84)
                                 // Add a yellow border for moderate Ozone levels
                                 ozoneCard.classList.remove("border-green-500", "border-red-500");  // Remove other borders
-                                ozoneCard.classList.add("border-2", "border-yellow-500");
+                                ozoneCard.classList.add("border-2", "border-yellow-300");
                                 ozoneStatus.innerText = "Moderate";  // Update status text to 'Moderate'
                             } else {  // High level of Ozone (85 to 104 or more)
                                 // Add a red border for high Ozone levels
@@ -394,7 +663,50 @@
                                 ozoneStatus.innerText = "High";  // Update status text to 'High'
                             }
                             let ozonetext = document.getElementById("ozonetext").innerText = value + " PPB";
+                        } else if (pollutantType === "pm25") {
+                            // Display a Toastify warning for high PM2.5 levels
+                            if (value > 200) {
+                                Toastify({
+                                    text: "Warning: PM2.5 levels are extremely high (Very Unhealthy)!",
+                                    duration: 10000,
+                                    backgroundColor: "linear-gradient(to right, #ff5f6d, #ffc3a0)",
+                                    gravity: "top",
+                                    position: "right",
+                                    stopOnFocus: true,
+                                    onClick: function() {}
+                                }).showToast();
+                            }
+
+                            // Handle different PM2.5 levels and update the card and status
+                            let pmCard = document.getElementById("pm");
+                            let pmStatus = document.getElementById("pmstatus");
+
+                            if (value <= 50) {  // Low level of PM2.5 (0 - 50 ppm)
+                                pmCard.classList.remove("border-yellow-500", "border-red-500", "border-orange-500", "border-green-500");
+                                pmCard.classList.add("border-2", "border-green-500");
+                                pmStatus.innerText = "Low";  // Update status text to 'Low'
+                            } else if (value <= 100) {  // Moderate level of PM2.5 (51 - 100 ppm)
+                                pmCard.classList.remove("border-green-500", "border-red-500", "border-orange-500");
+                                pmCard.classList.add("border-2", "border-yellow-300");
+                                pmStatus.innerText = "Moderate";  // Update status text to 'Moderate'
+                            } else if (value <= 150) {  // High level of PM2.5 (101 - 150 ppm)
+                                pmCard.classList.remove("border-green-500", "border-yellow-300", "border-red-500");
+                                pmCard.classList.add("border-2", "border-orange-500");
+                                pmStatus.innerText = "High";  // Update status text to 'High'
+                            } else if (value <= 200) {  // Very High level of PM2.5 (151 - 200 ppm)
+                                pmCard.classList.remove("border-green-500", "border-yellow-300", "border-orange-500");
+                                pmCard.classList.add("border-2", "border-red-500");
+                                pmStatus.innerText = "Very High (Unhealthy)";  // Update status text to 'Very High (Unhealthy)'
+                            } else if (value <= 300) {  // Extremely High level of PM2.5 (201 - 300 ppm)
+                                pmCard.classList.remove("border-green-500", "border-yellow-300", "border-orange-500", "border-red-500");
+                                pmCard.classList.add("border-2", "border-purple-500");
+                                pmStatus.innerText = "Extremely High (Very Unhealthy)";  // Update status text to 'Extremely High (Very Unhealthy)'
+                            }
+
+                            // Update the PM2.5 value in the text display
+                            let pmtext = document.getElementById("pmtext").innerText = value + " PPM";
                         }
+
 
                     });
                 });
@@ -404,15 +716,16 @@
         };
     
         // Fetch the latest data for each pollutant
-        fetchLatestData(mhDataCollectionRef, 'roundedCard', ['co2'], 'co2');
-        fetchLatestData(coDataCollectionRef, 'squareCard', ['co'], 'co');
-        fetchLatestData(ozoneDataCollectionRef, 'ozoneCard', ['O3_ppb'], 'ozone');
+    setInterval(() => fetchLatestData(mhDataCollectionRef, ['co2'], 'co2'), 3000);
+    setInterval(() => fetchLatestData(coDataCollectionRef, ['co'], 'co'), 3000);
+    setInterval(() => fetchLatestData(ozoneDataCollectionRef, ['O3_ppm'], 'ozone'), 3000);
+    setInterval(() => fetchLatestData(pmDataCollectionRef, ['pm25'], 'pm25'), 3000);
     
         // Chart.js Setup for pollution trends
         const ctx = document.getElementById('myChart');
         const chartData = {
-            labels: [],  // Time stamps for the X-axis
-            datasets: [{
+        labels: [],  // Time stamps for the X-axis
+        datasets: [{
                 label: 'CO2 Levels (PPM)',
                 data: [],  // Array of CO2 data
                 borderColor: 'rgba(255, 99, 132, 1)',
@@ -435,8 +748,18 @@
                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
                 fill: false,
                 tension: 0.1
-            }]
-        };
+            },
+            {
+                label: 'PM2.5 Levels (µg/m³)',
+                data: [],  // Array of PM2.5
+                borderColor: 'rgba(255, 159, 64, 1)',  // Updated border color
+                backgroundColor: 'rgba(255, 159, 64, 0.2)',  // Updated background color
+                fill: false,
+                tension: 0.1
+            }
+        ]
+    };
+
     
         const config = {
             type: 'line',
@@ -452,16 +775,19 @@
                 const co2Data = [];
                 const coData = [];
                 const ozoneData = [];
+                const pmData =[];
                 const timestamps = [];
     
                 // Fetch data for CO2, CO, and Ozone (you can modify queries here)
                 const co2Query = query(mhDataCollectionRef, orderBy("timestamp", "desc"), limit(24));
                 const coQuery = query(coDataCollectionRef, orderBy("timestamp", "desc"), limit(24));
                 const ozoneQuery = query(ozoneDataCollectionRef, orderBy("timestamp", "desc"), limit(24));
+                const pmQuery = query(pmDataCollectionRef, orderBy("timestamp", "desc"), limit(24));
     
                 const co2Snapshot = await getDocs(co2Query);
                 const coSnapshot = await getDocs(coQuery);
                 const ozoneSnapshot = await getDocs(ozoneQuery);
+                const pmSnapshot = await getDocs(pmQuery);
     
                 co2Snapshot.forEach((doc) => {
                     const data = doc.data();
@@ -479,12 +805,18 @@
                     const data = doc.data();
                     ozoneData.push(data.O3_ug_m3);
                 });
+
+                pmSnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    pmData.push(data.pm25);
+                });
     
                 // Update the chart with new data
                 myChart.data.labels = timestamps;
                 myChart.data.datasets[0].data = co2Data;
                 myChart.data.datasets[1].data = coData;
                 myChart.data.datasets[2].data = ozoneData;
+                myChart.data.datasets[3].data = pmData;
     
                 // Re-render the chart
                 myChart.update();
@@ -495,6 +827,151 @@
     
         // Fetch chart data every 30 seconds
         setInterval(fetchChartData, 30000);
+
+
+        function formatDate(date) {
+            const options = {
+                weekday: 'short',
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: true,
+            };
+
+            let formattedDate = date.toLocaleString('en-US', options);
+            return formattedDate.replace(/ [A-Za-z]*$/, '');
+        }
+        const fetchPollutantData = async (collectionRef, fieldName, limitCount = 100) => {
+            const data = [];
+            const timestamps = [];
+
+            // Fetch data from Firestore
+            const queryRef = query(collectionRef, orderBy("timestamp", "desc"), limit(limitCount));
+            const snapshot = await getDocs(queryRef);
+
+            snapshot.forEach((doc) => {
+                const docData = doc.data();
+                const fieldValue = docData[fieldName];
+                const formattedDate = formatDate(docData.timestamp.toDate()); // Use the formatDate function
+                data.push(fieldValue);
+                timestamps.push(formattedDate);
+            });
+
+            return { data, timestamps };
+        };
+
+        const generatePDF = async (collectionRef, fieldName, limitCount = 100) => {
+            try {
+                // Fetch data dynamically
+                const { data, timestamps } = await fetchPollutantData(collectionRef, fieldName, limitCount);
+
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+
+                // Set PDF title and headers
+                doc.setFontSize(16);
+                doc.text(`${fieldName} Data Report`, 14, 20);
+                doc.setFontSize(12);
+                doc.text(`Generated on: ${new Date().toLocaleString()}`, 14, 30);
+
+                // Add table headers
+                doc.text("Timestamp", 14, 40);
+                doc.text(`${fieldName} Level`, 100, 40);
+
+                // Add data to the PDF
+                let yPosition = 50;
+                for (let i = 0; i < data.length; i++) {
+                    doc.text(timestamps[i], 14, yPosition); // Add formatted timestamp
+                    doc.text(data[i].toString() + " ppm", 100, yPosition); // Add data value (CO2, CO, etc.)
+                    yPosition += 10;
+
+                    // Prevent exceeding the page height
+                    if (yPosition > 270) {
+                        doc.addPage();
+                        yPosition = 20;
+                    }
+                }
+
+                // Save the generated PDF
+                doc.save(`${fieldName}_Data_Report.pdf`);
+            } catch (error) {
+                console.error("Error generating PDF:", error);
+            }
+        };
+
+        const generateCSV = async (collectionRef, fieldName, limitCount = 100) => {
+            try {
+                // Fetch data dynamically
+                const { data, timestamps } = await fetchPollutantData(collectionRef, fieldName, limitCount);
+
+                // Create CSV content
+                let csvContent = "Timestamp," + `${fieldName} Level\n`; // CSV header
+
+                // Add each row of data
+                for (let i = 0; i < data.length; i++) {
+                    csvContent += `${timestamps[i]},${data[i]} ppm\n`; // Added 'ppm' to the value
+                }
+
+                // Create a Blob from the CSV content
+                const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+
+                // Create a temporary link to trigger download
+                const link = document.createElement("a");
+                if (link.download !== undefined) { // Feature detection for browsers
+                    // Create an object URL for the Blob and set it as the href
+                    const url = URL.createObjectURL(blob);
+                    link.setAttribute("href", url);
+                    link.setAttribute("download", `${fieldName}_Data_Report.csv`);
+
+                    // Trigger the download
+                    link.click();
+
+                    // Revoke the object URL after downloading
+                    URL.revokeObjectURL(url);
+                }
+            } catch (error) {
+                console.error("Error generating CSV:", error);
+            }
+        };
+
+        document.getElementById('downloadCO2DataBtn').addEventListener('click', () => {
+            generatePDF(mhDataCollectionRef, "co2", 100);
+        });
+
+        document.getElementById('downloadCO2DataBtnCSV').addEventListener('click', () => {
+            generateCSV(mhDataCollectionRef, "co2", 100);
+        });
+
+        document.getElementById('downloadCODataBtn').addEventListener('click', () => {
+            generatePDF(coDataCollectionRef, "co", 100);
+        });
+
+        document.getElementById('downloadCODataBtnCSV').addEventListener('click', () => {
+            generateCSV(coDataCollectionRef, "co", 100);
+        });
+
+        document.getElementById('downloadOzoneDataBtn').addEventListener('click', () => {
+            generatePDF(ozoneDataCollectionRef, "O3_ppm", 100);
+        });
+
+        document.getElementById('downloadOzoneDataBtnCSV').addEventListener('click', () => {
+            generateCSV(ozoneDataCollectionRef, "O3_ppm", 100);
+        });
+
+        document.getElementById('downloadPmDataBtn').addEventListener('click', () => {
+            generatePDF(pmDataCollectionRef, "pm25", 100);
+        });
+
+        document.getElementById('downloadPmDataBtnCSV').addEventListener('click', () => {
+            generateCSV(pmDataCollectionRef, "pm25", 100);
+        });
+
+
+
+
     </script>
     
 
